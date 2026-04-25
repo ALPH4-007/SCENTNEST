@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=yes">
+  <title>ScentNest | Artisanal Oil Perfumes</title>
+  <!-- Google Fonts & Font Awesome -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <div class="nav-bar">
+      <div class="logo">
+        <h1>🌿 ScentNest</h1>
+        <p>artisan oil perfumes • pure essence</p>
+      </div>
+      <div class="nav-actions">
+        <div class="admin-toggle" id="adminPanelBtn">
+          <i class="fas fa-user-shield"></i> <span>Admin</span>
+        </div>
+        <div class="country-selector">
+          <i class="fas fa-globe"></i>
+          <select id="countrySelect">
+            <option value="GH">🇬🇭 Ghana (GHS)</option>
+            <option value="UK">🇬🇧 UK (GBP)</option>
+            <option value="US">🇺🇸 USA (USD)</option>
+            <option value="NG">🇳🇬 Nigeria (NGN)</option>
+          </select>
+        </div>
+        <div class="cart-icon" id="cartIcon">
+          <i class="fas fa-shopping-bag"></i>
+          <span class="cart-count" id="cartCount">0</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="hero">
+    <div class="container">
+      <h2>liquid poetry • oud • amber • musk</h2>
+      <p>Alcohol-free luxury oils — click image to zoom. Worldwide shipping.</p>
+    </div>
+  </div>
+  <div class="container products-section">
+    <div class="section-title">✨ signature oils</div>
+    <div class="products-grid" id="productsGrid"></div>
+  </div>
+</main>
+<footer>
+  <p>ScentNest © 2025 — Global shipping: Ghana, UK, US, Nigeria | WhatsApp orders</p>
+</footer>
+
+<!-- Cart Sidebar -->
+<div class="cart-overlay" id="cartOverlay"></div>
+<div class="cart-sidebar" id="cartSidebar">
+  <div class="cart-header"><span>🛒 Your Nest</span><button id="closeCartBtn" style="font-size:1.6rem; background:none; border:none; cursor:pointer;">&times;</button></div>
+  <div class="cart-items" id="cartItemsList"></div>
+  <div class="cart-total"><span>Total</span><span id="cartTotalPrice">0.00</span></div>
+  <button class="checkout-btn" id="proceedWhatsAppBtn"><i class="fab fa-whatsapp"></i> Proceed to WhatsApp</button>
+</div>
+
+<!-- Password Modal -->
+<div id="passwordModal" class="modal">
+  <div class="modal-content" style="max-width: 380px;">
+    <h3><i class="fas fa-lock"></i> Admin Access</h3>
+    <p>Enter secure password</p>
+    <input type="password" id="adminPassword" placeholder="Password" class="password-input">
+    <button id="verifyPasswordBtn" style="background:#a6602e;">Unlock Panel</button>
+    <div id="passwordError" class="error-msg"></div>
+    <button id="closePasswordModalBtn" style="margin-top: 10px; background:#b0a088;">Cancel</button>
+  </div>
+</div>
+
+<!-- Admin Modal with Back Button -->
+<div id="adminModal" class="modal">
+  <div class="modal-content">
+    <div class="admin-header-row">
+      <h3 style="margin:0;"><i class="fas fa-crown"></i> Admin Panel</h3>
+      <button id="backToSiteBtn" class="back-to-site-btn"><i class="fas fa-arrow-left"></i> Back to Site</button>
+    </div>
+    <div class="admin-form">
+      <input type="text" id="productName" placeholder="Product Name">
+      <textarea id="productDesc" placeholder="Description" rows="2"></textarea>
+      <div style="display: flex; gap: 8px; flex-wrap:wrap;">
+        <input type="number" id="priceGH" placeholder="GHS (₵)" style="flex:1; min-width:70px;">
+        <input type="number" id="priceUK" placeholder="GBP (£)" style="flex:1; min-width:70px;">
+        <input type="number" id="priceUS" placeholder="USD ($)" style="flex:1; min-width:70px;">
+        <input type="number" id="priceNG" placeholder="NGN (₦)" style="flex:1; min-width:90px;">
+      </div>
+      
+      <div style="margin: 12px 0;">
+        <label class="file-input-label"><i class="fas fa-cloud-upload-alt"></i> Upload Image</label>
+        <input type="file" id="productImageFile" accept="image/*" style="display: none;">
+        <div class="image-preview-area">
+          <img id="imagePreview" class="image-preview" style="display: none;" alt="Preview">
+        </div>
+        <input type="hidden" id="productImageData" value="">
+      </div>
+      
+      <button id="saveProductBtn"><i class="fas fa-save"></i> Add / Update Product</button>
+      <hr style="margin: 16px 0;">
+      <h4>📦 Manage Products</h4>
+      <div id="adminProductList" class="product-list-admin"></div>
+      <button id="closeAdminBtn" style="background:#b0a088; margin-top:12px;">Close Panel</button>
+    </div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+ 
+
+</body>
+</html>
